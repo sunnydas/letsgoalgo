@@ -1,5 +1,7 @@
 package com.letsgoalgo.problems.arrays;
 
+import com.letsgoalgo.algorithms.EuclideanAlgorithm;
+
 import java.util.Arrays;
 
 public class ArrayRotation {
@@ -48,6 +50,26 @@ Output : arr[] = [3, 4, 5, 6, 7, 1, 2]
         System.out.println();
     }
 
+    // Time Complexity: O(n)
+    public static void jugglingAlgo(int[] input, int k) {
+        int gcd = EuclideanAlgorithm.getGCD(input.length, k);
+
+        for(int i = 0; i < gcd; i++) {
+            int temp = input[i];
+            int index1 = i;
+            while(true) {
+                int index2 = index1 + k;
+                if(index2 >= input.length) {
+                    index2 = index2 % input.length;
+                }
+                if(index2 == i) break;
+                input[index1] = input[index2];
+                index1 = index2;
+            }
+            input[index1] = temp;
+        }
+    }
+
     public static void main(String[] args) {
         int[] input1 = new int[]{1, 2, 3, 4, 5, 6, 7};
         int[] rotated = rotate(input1, 2);
@@ -56,6 +78,10 @@ Output : arr[] = [3, 4, 5, 6, 7, 1, 2]
         int[] input2 = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
         reversalAlgo(input2, 4);
         printArray(input2);
+
+        int[] input3 = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        jugglingAlgo(input3, 4);
+        printArray(input3);
     }
 
 }
