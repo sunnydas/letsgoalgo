@@ -33,6 +33,9 @@ exection -> execution (insert 'u')
 
 
     public static int findMinEditDistance(String word1,String word2){
+        /*
+        complexity O(3.pow(max{word1.length,word2.length}))
+         */
         if(word1.isEmpty()){
             return word2.length();
         }
@@ -61,8 +64,8 @@ exection -> execution (insert 'u')
     }
 
     public static void main(String[] args) {
-        String word1 = "ab";
-        String word2 = "cd";
+        String word1 = "horse";
+        String word2 = "ros";
         System.out.println(findMinEditDistance(word1,word2));
     }
 
