@@ -17,6 +17,10 @@ Output : arr[] = [3, 4, 5, 6, 7, 1, 2]
 
     public static int[] rotate(int[] input, int k){
         int[] rotated = new int[input.length];
+        /*
+        Complexity O(n)
+        space complexity O(n)
+         */
         for(int i = 0 ; i < input.length ; i++){
             // Java's % will not work here
             int nextIndex = Math.floorMod((i-k),input.length);
