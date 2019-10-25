@@ -2,7 +2,7 @@ package com.letsgoalgo.problems.arrays;
 
 import java.util.Arrays;
 
-public class ArrayReversal {
+public class ArrayRotationAlt {
 
     /*
     Write a function rotate(arr[], d, n) that rotates arr[] of size n by d elements.
