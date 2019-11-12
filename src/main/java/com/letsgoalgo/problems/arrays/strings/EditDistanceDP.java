@@ -2,6 +2,9 @@ package com.letsgoalgo.problems.arrays.strings;
 
 public class EditDistanceDP {
 
+    /*
+    Time complexity O(word1.length,word2.length)
+     */
     public static int findMinEditDistanceDP(String word1,String word2){
       int[][] dp = new int[word1.length() + 1][word2.length() + 1];
       for(int i = 0 ; i < word1.length() ; i++){
