@@ -1,6 +1,9 @@
 package com.letsgoalgo.problems.arrays;
 
 public class CoinChange {
+    /*
+    Complexity O(2.pow(n))
+     */
     public static int getSmallestSubArray(int[] arr, int curr, int n, int length) {
         if(n == 0) return length;
 
