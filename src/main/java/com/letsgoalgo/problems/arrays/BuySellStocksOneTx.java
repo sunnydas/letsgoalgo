@@ -1,0 +1,54 @@
+package com.letsgoalgo.problems.arrays;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class BuySellStocksOneTx {
+
+    public static long maxProfitAlt(List<Long> prices,int k) {
+        long maxProfit = 0;
+        long min = prices.get(0);
+        int i = 0;
+        int j = i + k;
+        while (j < prices.size()) {
+            long cur = prices.get(i);
+            if (cur < min) {
+                min = cur;
+            }
+            long diff = prices.get(j) - min;
+            if (diff > 0) {
+                maxProfit = Math.max(maxProfit, diff);
+            }
+            i++;
+            j++;
+        }
+        return maxProfit;
+    }
+
+    public static long maxProfit(List<Long> prices) {
+        long maxProfit = 0;
+        for (int i = 0; i < prices.size(); i++) {
+            for (int j = i + 5; j < prices.size(); j++) {
+                long diff = prices.get(j) - prices.get(i);
+                maxProfit = Math.max(diff, maxProfit);
+            }
+        }
+        return maxProfit;
+    }
+
+    public static void main(String[] args) {
+        List<Long> prices = new ArrayList<>();
+        prices.add(1L);
+        prices.add(0L);
+        prices.add(3L);
+        prices.add(4L);
+        prices.add(5L);
+        prices.add(6L);
+        prices.add(7L);
+        System.out.println(maxProfit(prices));
+        System.out.println(maxProfitAlt(prices,5));
+        Long[] input = new Long[]{3L, 4L, 1L, 5L, 6L, 7L, 8L, 9L, 10L, 11L};
+        System.out.println(maxProfitAlt(Arrays.asList(input),5));
+    }
+}
